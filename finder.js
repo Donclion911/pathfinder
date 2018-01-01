@@ -1,6 +1,6 @@
 temp =document.getElementById("path");
 x=temp.getContext("2d");
-temp.style.backgroundColor="gray";
+temp.style.backgroundColor="white";
 stepX=stepY=0;
 moveX=Math.round(temp.width/temp.height);
 moveY=Math.round(temp.height/temp.width);
@@ -125,7 +125,7 @@ function _fillupMap()
 			}
 			else
 			{
-				x.fillStyle="rgba(149, 165, 166,1.0)";
+				x.fillStyle="rgba(149, 165, 166,0.5)";
 				if(blocks[i][l].check)
 				{
 					x.fillStyle="rgba(127, 140, 141,1.0)";

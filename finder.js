@@ -125,7 +125,7 @@ function _fillupMap()
 			}
 			else
 			{
-				x.fillStyle="rgba(149, 165, 166,0.5)";
+				x.fillStyle="rgba(149, 165, 100,1)";
 				if(blocks[i][l].check)
 				{
 					x.fillStyle="rgba(127, 140, 141,1.0)";

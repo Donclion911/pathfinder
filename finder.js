@@ -125,10 +125,10 @@ function _fillupMap()
 			}
 			else
 			{
-				x.fillStyle="rgba(149, 165, 100,1)";
+				x.fillStyle="rgba(149, 165, 166,1.0)";
 				if(blocks[i][l].check)
 				{
-					x.fillStyle="rgba(52, 152, 219,1.0)";
+					x.fillStyle="rgba(231, 76, 60,1.0)";
 				}
 				if(blocks[i][l].pass)
 				{

@@ -57,7 +57,8 @@ function _crossCheck(around)
 	}
 	else
 	{
-		if(around.x>=0 && around.y>=0?blocks[around.x][around.y].type!=1:false)
+		if(around.x>=0 && around.y>=0?blocks[around.x][around.y].type!=1&&
+		   !blocks[around.x][around.y].pass:false)
 		{
 			openPostions.push(new position(around.x,around.y));
 			blocks[around.x][around.y].check=true;

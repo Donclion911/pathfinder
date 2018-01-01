@@ -53,6 +53,7 @@ function _crossCheck(around)
 			}
 		});
 		stepX=nextPostion.x;stepY=nextPostion.y;
+		blocks[stepX][stepY].pass=true;
 	}
 	else
 	{

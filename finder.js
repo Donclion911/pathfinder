@@ -43,12 +43,12 @@ function _crossCheck(around)
 		_crossCheck(new position(stepX+1,stepY-1));
 		_crossCheck(new position(stepX-1,stepY-1));
 		//after get avilible around postion
-		shortpath=(temp.height-10)+(temp.width-10);
+		shortpath=(temp.height)*(temp.width);
 		nextPostion=new position(stepX,stepY);
 		openPostions.forEach(function(next){
-			if(((temp.height-10)+(temp.width-10))-((next.y)+(next.x))<shortpath)
+			if(((temp.height)*(temp.width))-((next.y)*(next.x))<shortpath)
 			{
-				shortpath=((temp.height-10)+(temp.width-10))-((next.y)+(next.x));
+				shortpath=((temp.height)*(temp.width))-((next.y)*(next.x));
 				nextPostion=new position(next.x,next.y);
 			}
 		});

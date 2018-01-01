@@ -27,12 +27,22 @@ position=class{
 		this.y=y;
 	}
 }
+function _removeBlock()
+{
+	newArea=
+	openPostions.filter(function(next){
+		if(!(next.x==stepX&&next.y==stepY))
+		{
+			return true;
+		}
+	});
+	openPostions=newArea;
+}
 function _crossCheck(around)
 {	
 	if(around==undefined)
 	{
-		openPostions=[];
-		//cross postions
+		//cross postions	
 		_crossCheck(new position(stepX+1,stepY));
 		_crossCheck(new position(stepX,stepY+1));
 		_crossCheck(new position(stepX-1,stepY));
@@ -43,12 +53,13 @@ function _crossCheck(around)
 		_crossCheck(new position(stepX+1,stepY-1));
 		_crossCheck(new position(stepX-1,stepY-1));
 		//after get avilible around postion
-		shortpath=(temp.height)*(temp.width);
+		_removeBlock();
+		shortpath=(temp.height)+(temp.width);
 		nextPostion=new position(stepX,stepY);
 		openPostions.forEach(function(next){
-			if(((temp.height)*(temp.width))-((next.y)*(next.x))<shortpath)
+			if(((temp.height)+(temp.width))-((next.y)+(next.x))<shortpath)
 			{
-				shortpath=((temp.height)*(temp.width))-((next.y)*(next.x));
+				shortpath=((temp.height)+(temp.width))-((next.y)+(next.x));
 				nextPostion=new position(next.x,next.y);
 			}
 		});
@@ -60,8 +71,15 @@ function _crossCheck(around)
 		if(around.x>=0 && around.y>=0?blocks[around.x][around.y].type!=1&&
 		   !blocks[around.x][around.y].pass:false)
 		{
-			openPostions.push(new position(around.x,around.y));
-			blocks[around.x][around.y].check=true;
+			duplicate=
+			openPostions.findIndex(function(next){
+				return around.x==next.x&&around.y==next.y;
+			});
+			if(duplicate==-1)
+			{
+				openPostions.push(new position(around.x,around.y));
+				blocks[around.x][around.y].check=true;
+			}
 		}
 	}
 }

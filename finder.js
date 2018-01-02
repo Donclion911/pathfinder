@@ -68,7 +68,8 @@ function _crossCheck(around)
 	}
 	else
 	{
-		if(around.x>=0 && around.y>=0?blocks[around.x][around.y].type!=1&&
+		if(around.x>=0 && around.y>=0&&around.x<blocks.length&&around.y<blocks.length?
+		   blocks[around.x][around.y].type!=1&&
 		  !blocks[around.x][around.y].pass:false)
 		{
 			duplicate=

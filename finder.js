@@ -83,33 +83,6 @@ function _crossCheck(around)
 		}
 	}
 }
-function _trackPath()
-{
-	console.log(`${stepX},${stepY}`);
-	if(stepX<blocks.length)
-	{
-		if(blocks[stepX][stepY]!=undefined &&
-		  (stepX<blocks.length-1&&stepY<blocks[0].length-1))
-		{
-			if(blocks[stepX][stepY].type!=1 
-				&& (blocks[stepX+1][stepY].type!=1||blocks[stepX][stepY+1].type!=1))
-			{
-				blocks[stepX][stepY].pass=true;
-				stepX+=moveX;stepY+=moveY;
-				past=true;
-			}
-			else
-			{
-				if(past)
-				{
-					stepX-=moveX;stepY-=moveY;
-				}
-				past=false;
-				_crossCheck();
-			}
-		}
-	}
-}
 function _fillupMap()
 {
 	tempX=[];
@@ -132,7 +105,8 @@ function _fillupMap()
 			tempX=[];
 		}
 	}
-	_trackPath();
+	console.log(`${stepX},${stepY}`);
+	_crossCheck();
 	for(i=0;i<blocks.length;i++)
 	{
 		for(l=0;l<blocks[i].length;l++)

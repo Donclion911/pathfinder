@@ -69,7 +69,7 @@ function _crossCheck(around)
 	else
 	{
 		if(around.x>=0 && around.y>=0?blocks[around.x][around.y].type!=1&&
-		   !blocks[around.x][around.y].pass:false)
+		  !blocks[around.x][around.y].pass:false)
 		{
 			duplicate=
 			openPostions.findIndex(function(next){
@@ -125,7 +125,7 @@ function _fillupMap()
 				}
 				else
 				{
-					tempX.push(new block(i,l,Math.round(Math.random()*(3-1)+1)));
+					tempX.push(new block(i,l,Math.round(Math.random()*(2.5-1)+1)));
 				}
 			}
 			blocks.push(tempX);

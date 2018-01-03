@@ -49,12 +49,12 @@ function _crossCheck(around)
 		_crossCheck(new position(stepX-1,stepY-1));
 		//after get avilible around postion
 		_removeBlock();
-		shortpath=(temp.height)+(temp.width);
+		shortpath=((temp.height-stepY)/2)+((temp.width-stepY)/2)-((stepX)+(stepY));
 		nextPostion=new position(stepX,stepY);
 		openPostions.forEach(function(next){
-			if(((temp.height)+(temp.width))-((next.y)+(next.x))<shortpath)
+			if(((temp.height-stepY)/2)+((temp.width-stepY)/2)-((stepX)+(stepY))-((next.y)+(next.x))<shortpath)
 			{
-				shortpath=((temp.height)+(temp.width))-((next.y)+(next.x));
+				shortpath=((temp.height-stepY)/2)+((temp.width-stepY)/2)-((stepX)+(stepY))-((next.y)+(next.x));
 				nextPostion=new position(next.x,next.y);
 			}
 		});

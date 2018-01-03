@@ -29,10 +29,7 @@ function _removeBlock()
 {
 	newArea=
 	openPostions.filter(function(next){
-		if(!(next.x==stepX&&next.y==stepY))
-		{
-			return true;
-		}
+		return !(next.x==stepX&&next.y==stepY)
 	});
 	openPostions=newArea;
 }

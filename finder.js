@@ -2,8 +2,6 @@ temp =document.getElementById("path");
 x=temp.getContext("2d");
 temp.style.backgroundColor="white";
 stepX=stepY=0;
-moveX=Math.round(temp.width/temp.height);
-moveY=Math.round(temp.height/temp.width);
 blocks=[];
 past=false;
 openPostions=[];
@@ -68,7 +66,8 @@ function _crossCheck(around)
 	}
 	else
 	{
-		if(around.x>=0 && around.y>=0&&around.x<blocks.length&&around.y<blocks.length?
+		if(around.x>=0 && around.y>=0&&around.x<blocks.length&&
+		   around.y<blocks[0].length?
 		   blocks[around.x][around.y].type!=1&&
 		  !blocks[around.x][around.y].pass:false)
 		{

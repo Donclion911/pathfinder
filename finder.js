@@ -30,7 +30,14 @@ function _removeBlock()
 {
 	newArea=
 	openPostions.filter(function(next){
-		 return !(next.x==stepX&&next.y==stepY);
+		if(!(next.x==stepX&&next.y==stepY))
+		{
+			return true;
+		}
+		else
+		{
+			blocks[next.x][next.y].pass=true;
+		}
 	});
 	openPostions=newArea;
 }
@@ -73,10 +80,10 @@ function _crossCheck(around)
 			openPostions.findIndex(function(next){
 				return around.x==next.x&&around.y==next.y;
 			});
+			blocks[around.x][around.y].check=true;
 			if(duplicate==-1)
 			{
 				openPostions.push(new position(around.x,around.y));
-				blocks[around.x][around.y].check=true;
 			}
 		}
 		if(around.x==blocks.length-1&&around.y==blocks[around.x].length-1||blocks[blocks.length-1][blocks.length-1].pass)

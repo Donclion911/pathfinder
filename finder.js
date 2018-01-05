@@ -108,7 +108,6 @@ function _fillupMap()
 			tempX=[];
 		}
 	}
-	console.log(`${stepX},${stepY}`);
 	if(!done)_crossCheck();
 	for(i=0;i<blocks.length;i++)
 	{

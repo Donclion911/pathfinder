@@ -5,6 +5,7 @@ stepX=stepY=0;
 blocks=[];
 past=false;
 openPostions=[];
+done=false;
 setInterval(_fillupMap,0);
 block=class block{
   constructor(x,y,type)
@@ -60,6 +61,11 @@ function _crossCheck(around)
 		});
 		stepX=nextPostion.x;stepY=nextPostion.y;
 		blocks[stepX][stepY].pass=true;
+		if(stepX==blocks.length-1&&stepY==blocks[stepX].length-1)
+		{
+			console.log("done");
+			done=true;
+		}
 	}
 	else
 	{
@@ -103,7 +109,7 @@ function _fillupMap()
 		}
 	}
 	console.log(`${stepX},${stepY}`);
-	_crossCheck();
+	if(!done)_crossCheck();
 	for(i=0;i<blocks.length;i++)
 	{
 		for(l=0;l<blocks[i].length;l++)

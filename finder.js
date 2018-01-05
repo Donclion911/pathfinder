@@ -81,7 +81,7 @@ function _crossCheck(around)
 		}
 		if(around.x==blocks.length-1&&around.y==blocks[around.x].length-1||blocks[blocks.length-1][blocks.length-1].pass)
 		{
-			if(blocks[around.x][around.y].pass&&blocks[around.x][around.y].type!=1)
+			if(blocks[around.x][around.y].type!=1)
 			{ 
 				console.log("done");
 			}

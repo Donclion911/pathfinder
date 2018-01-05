@@ -61,11 +61,6 @@ function _crossCheck(around)
 		});
 		stepX=nextPostion.x;stepY=nextPostion.y;
 		blocks[stepX][stepY].pass=true;
-		if(stepX==blocks.length-1&&stepY==blocks[stepX].length-1)
-		{
-			console.log("done");
-			done=true;
-		}
 	}
 	else
 	{
@@ -83,6 +78,11 @@ function _crossCheck(around)
 				openPostions.push(new position(around.x,around.y));
 				blocks[around.x][around.y].check=true;
 			}
+		}
+		if(around.x==blocks.length-1&&around.y==blocks[around.x].length-1||blocks[blocks.length-1][blocks.length-1].pass)
+		{
+			console.log("done");
+			done=true;
 		}
 	}
 }

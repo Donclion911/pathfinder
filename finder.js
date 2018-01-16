@@ -57,23 +57,29 @@ function _crossCheck(around)
 		_crossCheck(new position(stepX-1,stepY-1));
 		//after get avilible around postion
 		_removeBlock();
-		shortpath=((temp.height-stepY)/2)+((temp.width-stepX)/2)-((stepX)+(stepY));
+		shortpath=((temp.height-stepY)/2)+((temp.width-stepX)/2);
 		nextPostion=new position(stepX,stepY);
 		openPostions.forEach(function(next){
-			if(((temp.height-stepY)/2)+((temp.width-stepX)/2)-((stepX)+(stepY))-((next.y)+(next.x))<shortpath)
+			if(((temp.height-stepY)/2)+((temp.width-stepX)/2)-((next.y)+(next.x))<shortpath)
 			{
-				shortpath=((temp.height-stepY)/2)+((temp.width-stepX)/2)-((stepX)+(stepY))-((next.y)+(next.x));
+				shortpath=((temp.height-stepY)/2)+((temp.width-stepX)/2)-((next.y)+(next.x));
 				nextPostion=new position(next.x,next.y);
 			}
 		});
 		stepX=nextPostion.x;stepY=nextPostion.y;
 		blocks[stepX][stepY].pass=true;
+		if(blocks[blocks.length-1][blocks.length-1].pass)
+		{
+			console.log("done");
+			done=true;
+		}
 	}
 	else
 	{
 		if(around.x>=0 && around.y>=0&&around.x<blocks.length&&
 		   around.y<blocks[0].length?
 		   blocks[around.x][around.y].type!=1&&
+		  !blocks[around.x][around.y].check&&
 		  !blocks[around.x][around.y].pass:false)
 		{
 			duplicate=
@@ -85,17 +91,6 @@ function _crossCheck(around)
 			{
 				openPostions.push(new position(around.x,around.y));
 			}
-		}
-		if(around.x==blocks.length-1&&around.y==blocks[around.x].length-1||blocks[blocks.length-1][blocks.length-1].pass)
-		{
-			if(blocks[around.x][around.y].type!=1)
-			{ 
-				console.log("done");
-			}
-			else{
-				console.log("No solution");
-			}
-			done=true;
 		}
 	}
 }
@@ -135,7 +130,7 @@ function _fillupMap()
 				x.fillStyle="rgba(149, 165, 166,1.0)";
 				if(blocks[i][l].check)
 				{
-					x.fillStyle="rgba(231, 76, 60,0.8)";
+					x.fillStyle="rgba(231, 76, 60,0.5)";
 				}
 				if(blocks[i][l].pass)
 				{

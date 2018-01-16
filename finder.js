@@ -68,7 +68,7 @@ function _crossCheck(around)
 		});
 		stepX=nextPostion.x;stepY=nextPostion.y;
 		blocks[stepX][stepY].pass=true;
-		if(blocks[blocks.length-1][blocks.length-1].pass)
+		if(blocks[blocks.length-1][blocks[0].length-1].pass)
 		{
 			console.log("done");
 			done=true;

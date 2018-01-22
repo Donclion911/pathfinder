@@ -87,7 +87,7 @@ function _crossCheck(around)
 		}
 		else
 		{
-			if(around.x==blocks.length&&around.y==blocks[0].length)
+			if(around.x==blocks.length-1&&around.y==blocks[0].length-1)
 			{
 				console.log("done");
 				done=true;

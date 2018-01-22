@@ -30,14 +30,7 @@ function _removeBlock()
 {
 	newArea=
 	openPostions.filter(function(next){
-		if(!(next.x==stepX&&next.y==stepY))
-		{
-			return true;
-		}
-		else
-		{
-			blocks[next.x][next.y].pass=true;
-		}
+		return !(next.x==stepX&&next.y==stepY)
 	});
 	openPostions=newArea;
 }

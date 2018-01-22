@@ -85,6 +85,14 @@ function _crossCheck(around)
 				openPostions.push(new position(around.x,around.y));
 			}
 		}
+		else
+		{
+			if(around.x==blocks.length&&around.y==blocks[0].length)
+			{
+				console.log("done");
+				done=true;
+			}
+		}
 	}
 }
 function _fillupMap()
